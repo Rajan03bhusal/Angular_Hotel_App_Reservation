@@ -1,0 +1,82 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Sign Up</h5>
+          <form [formGroup]="RegisterForm">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                formControlName="Username"
+              />
+            </div>
+            <small
+              *ngIf="
+                RegisterForm.controls['Username'].dirty &&
+                RegisterForm.hasError('required', 'Username')
+              "
+              class="text-danger"
+              >*Username is required</small
+            >
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                formControlName="Email"
+              />
+            </div>
+            <small
+              *ngIf="
+                RegisterForm.controls['Password'].dirty &&
+                RegisterForm.hasError('required', 'Password')
+              "
+              class="text-danger"
+              >*Email is required</small
+            >
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                formControlName="Password"
+              />
+            </div>
+            <small
+              *ngIf="
+                RegisterForm.controls['Password'].dirty &&
+                RegisterForm.hasError('required', 'Password')
+              "
+              class="text-danger"
+              >*Password is required</small
+            >
+            <button
+              (click)="onRegister()"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Sign Up
+            </button>
+            <div class="mt-3">
+              Have an account?
+              <a routerLink="/login" class="text-primary">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
